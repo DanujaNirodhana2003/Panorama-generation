@@ -1,6 +1,12 @@
 # Panorama Generation Project
 
+Group G16 - Project P09
+
 This repository contains the source code, data, and results for the CO5430 Computer Vision Semester Project: Panorama Generation from overlapping photos.
+
+<p align="center">
+  <img src="docs/images/1.jpg" alt="Panoramic view" width="50%" />
+</p>
 
 ## Project Structure
 - `src/`: Python source code and Jupyter Notebooks.
@@ -16,3 +22,10 @@ This repository contains the source code, data, and results for the CO5430 Compu
 - [E/22/184 - Bhagya Karunanayake](https://people.ce.pdn.ac.lk/students/e22/184/)
 - [E/22/179 - Janith Kahagalla](https://people.ce.pdn.ac.lk/students/e22/179/)
 - [E/22/205 - Ashen Kumarasinghe](https://people.ce.pdn.ac.lk/students/e22/205/)
+
+## Dataset
+ Dataset source: (https://sourceforge.net/adobe/adobedatasets/home/Home/)
+
+## Workflow
+
+## Results
