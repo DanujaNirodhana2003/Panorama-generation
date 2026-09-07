@@ -34,6 +34,9 @@ build/
 Thumbs.db
 
 # Project-specific
-outputs/
-results/
+# Keep outputs/m2, outputs/m3, outputs/m4 panoramas tracked in git.
+# Only ignore noisy generated files:
+outputs/metrics/*.log
+outputs/metrics/*.csv
+outputs/m4/
 *.log
