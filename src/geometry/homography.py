@@ -72,6 +72,10 @@ def estimate_homography(src_pts, dst_pts, img2_shape,
     """
     fallback = False
 
+    # Guard against too few points (< 4 cannot define a homography)
+    if src_pts is None or dst_pts is None or len(src_pts) < 4 or len(dst_pts) < 4:
+        return None, None, False
+
     # --- Step 1: RANSAC homography -------------------------------------------
     H, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, ransac_reproj_thresh)
 

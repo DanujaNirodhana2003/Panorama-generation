@@ -6,14 +6,14 @@ Top-level panorama stitching orchestrator.
 Replaces the monolithic src/baseline.py __main__ block.
 All pipeline stages are now separate, importable modules:
 
-  features/extractor.py    → SIFT / ORB detection
-  matching/matcher.py      → FLANN + Lowe's ratio test
-  geometry/homography.py   → RANSAC + M4 affine fallback
-  stitching/warper.py      → canvas allocation, warping, blending
-  blending/feathering.py   → distance-based feathering (M4)
-  blending/multiband.py    → Laplacian pyramid blending (M4)
-  bundle_adjustment/       → global pose refinement (M4)
-  evaluation/metrics.py    → RMSE, inlier ratio, seam metric
+  features/extractor.py    - SIFT / ORB detection
+  matching/matcher.py      - FLANN + Lowe's ratio test
+  geometry/homography.py   - RANSAC + M4 affine fallback
+  stitching/warper.py      - canvas allocation, warping, blending
+  blending/feathering.py   - distance-based feathering (M4)
+  blending/multiband.py    - Laplacian pyramid blending (M4)
+  bundle_adjustment/       - global pose refinement (M4)
+  evaluation/metrics.py    - RMSE, inlier ratio, seam metric
 
 Usage
 -----
@@ -149,10 +149,10 @@ def run_two_image(data_dir: str, out_dir: str, cfg: dict,
     blend_tag = cfg["blend_mode"]
     match_out = os.path.join(out_dir, f"feature_matches_{blend_tag}.jpg")
     cv2.imwrite(match_out, match_img)
-    print(f"Saved match visualization → {match_out}")
+    print(f"Saved match visualization -> {match_out}")
 
     panorama, metrics = stitch_pair(img1, img2, cfg,
-                                    pair_label="img1→img2",
+                                    pair_label="img1->img2",
                                     log_path=log_path)
     if panorama is None:
         print("Stitching failed.")
@@ -160,7 +160,7 @@ def run_two_image(data_dir: str, out_dir: str, cfg: dict,
 
     pano_out = os.path.join(out_dir, f"panorama_{blend_tag}.jpg")
     cv2.imwrite(pano_out, panorama)
-    print(f"Saved panorama → {pano_out}")
+    print(f"Saved panorama -> {pano_out}")
     print(f"Metrics: {metrics}")
 
 
@@ -185,7 +185,7 @@ def run_multi_image(data_dir: str, out_dir: str, cfg: dict,
 
     for i in range(1, len(filenames)):
         img_next = cv2.imread(filenames[i])
-        label = f"img{i-1}→img{i}"
+        label = f"img{i-1}->img{i}"
         print(f"  [{i}/{len(filenames)-1}] {os.path.basename(filenames[i])}")
 
         # Collect pairwise data for bundle adjustment
@@ -239,14 +239,14 @@ def run_multi_image(data_dir: str, out_dir: str, cfg: dict,
                 [pd["label"] for pd in valid],
                 report["before_rmse"], report["after_rmse"]
             ):
-                f.write(f"{label}: {before:.4f} → {after:.4f} px\n")
-        print(f"BA report saved → {ba_log}")
+                f.write(f"{label}: {before:.4f} -> {after:.4f} px\n")
+        print(f"BA report saved -> {ba_log}")
 
     os.makedirs(out_dir, exist_ok=True)
     blend_tag = cfg["blend_mode"]
     out_name  = f"panorama_multi_{blend_tag}.jpg"
     cv2.imwrite(os.path.join(out_dir, out_name), collage)
-    print(f"Saved multi-image panorama → {os.path.join(out_dir, out_name)}")
+    print(f"Saved multi-image panorama -> {os.path.join(out_dir, out_name)}")
 
 
 # ---------------------------------------------------------------------------

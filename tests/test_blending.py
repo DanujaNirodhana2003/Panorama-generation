@@ -131,12 +131,13 @@ class TestMultibandBlend:
         # Pyramid blend
         blended = multiband_blend(c1, c2, m1, m2, levels=3)
 
-        def seam_grad(img, x):
+        # In overwrite, the abrupt boundary is at seam_col[-1] where m1 ends
+        def peak_grad_in_overlap(img, cols):
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
-            col_grad = np.abs(np.diff(gray[:, max(0, x-3):x+4], axis=1))
-            return col_grad.mean()
+            col_grad = np.abs(np.diff(gray[:, cols[0]:cols[-1] + 2], axis=1))
+            return col_grad.mean(axis=0).max()
 
-        grad_overwrite = seam_grad(overwrite, mid_x)
-        grad_blended   = seam_grad(blended,   mid_x)
+        grad_overwrite = peak_grad_in_overlap(overwrite, seam_col)
+        grad_blended   = peak_grad_in_overlap(blended,   seam_col)
         assert grad_blended < grad_overwrite, \
-            f"Blended seam gradient ({grad_blended:.2f}) should be < overwrite ({grad_overwrite:.2f})"
+            f"Blended peak seam gradient ({grad_blended:.2f}) should be < overwrite ({grad_overwrite:.2f})"

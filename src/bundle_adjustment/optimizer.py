@@ -121,7 +121,7 @@ def run_bundle_adjustment(pairwise_data: list[dict],
     if verbose:
         for i, (pd, before, after) in enumerate(zip(pairwise_data, before_rmse, after_rmse)):
             delta = before - after
-            sign  = "↓" if delta > 0 else "↑"
+            sign  = "v" if delta > 0 else "^"
             print(f"  [BA] After   {pd['label']}: RMSE = {after:.4f} px "
                   f"({sign}{abs(delta):.4f} px change)")
 
