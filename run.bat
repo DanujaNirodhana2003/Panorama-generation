@@ -20,5 +20,5 @@ if %ERRORLEVEL% NEQ 0 (
 type nul > "%MARKER%"
 
 :run
-echo Running baseline.py...
-python src\baseline.py
+echo Running pipeline.py...
+python src\pipeline.py

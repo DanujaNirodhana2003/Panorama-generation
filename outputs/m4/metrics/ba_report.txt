@@ -1,0 +1,4 @@
+Bundle Adjustment Report
+========================
+img0->img1: 2.7256 -> 1.1683 px
+img1->img2: 0.3019 -> 0.0000 px
