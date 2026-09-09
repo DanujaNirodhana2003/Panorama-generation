@@ -1,5 +1,4 @@
 Bundle Adjustment Report
 ========================
-img0->img1: 0.4692 -> 0.4170 px
-img1->img2: 0.0754 -> 0.0249 px
-img2->img3: 1.2664 -> 0.0491 px
+img0->img1: 2.7256 -> 1.1683 px
+img1->img2: 0.3019 -> 0.0000 px
