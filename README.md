@@ -17,6 +17,20 @@ This repository contains the source code, data, and results for the CO5430 Compu
 1. Clone the repository.
 2. Install dependencies using `pip install -r requirements.txt` (to be added).
 
+## Usage
+You can run the baseline model using one of the following methods:
+
+**Using the provided batch script (Windows):**
+```bash
+run.bat
+```
+
+
+**Directly via Python:**
+```bash
+python src/baseline.py
+```
+
 ## Team Members - Group 16
 - [E/22/054 - Danuja Nirodhana](https://people.ce.pdn.ac.lk/students/e22/054/)
 - [E/22/184 - Bhagya Karunanayake](https://people.ce.pdn.ac.lk/students/e22/184/)
