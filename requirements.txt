@@ -1,3 +1,7 @@
-opencv-python
+opencv-contrib-python
 numpy
 matplotlib
+scipy
+pytest
+pyyaml
+tqdm

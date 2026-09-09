@@ -1,0 +1,21 @@
+# configs/default.yaml
+# ====================
+# All tuneable thresholds for the panorama pipeline.
+# Override any value by editing this file or passing --blend / --data CLI args.
+
+# Feature matching
+ratio_thresh:   0.70      # Lowe's ratio test threshold (M3 baseline: 0.70)
+min_matches:    10        # Minimum good matches required before computing homography
+
+# Homography / RANSAC
+ransac_thresh:  5.0       # RANSAC reprojection threshold in pixels
+stretch_limit:  1.3       # M4: if bounding-box stretch > this, fall back to affine
+
+# Blending
+# Options: "overwrite" (M3 default), "feather" (M4 fast), "multiband" (M4 quality)
+blend_mode:     overwrite
+pyramid_levels: 5         # Laplacian pyramid depth for multiband blending
+compensate_exposure: false # Pre-blend exposure compensation (histogram matching)
+
+# Bundle adjustment
+ba_max_nfev:    200       # Max Levenberg-Marquardt function evaluations
