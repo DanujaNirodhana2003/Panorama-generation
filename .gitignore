@@ -38,5 +38,4 @@ Thumbs.db
 # Only ignore noisy generated files:
 outputs/metrics/*.log
 outputs/metrics/*.csv
-outputs/m4/
 *.log
