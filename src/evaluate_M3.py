@@ -13,8 +13,8 @@ def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_dir = os.path.join(base_dir, 'data')
     
-    img1_path = os.path.join(data_dir, 'image1.jpeg')
-    img2_path = os.path.join(data_dir, 'image2.jpeg')
+    img1_path = os.path.join(data_dir, 'raw', 'image1.jpeg')
+    img2_path = os.path.join(data_dir, 'raw', 'image2.jpeg')
     
     img1 = cv2.imread(img1_path)
     img2 = cv2.imread(img2_path)

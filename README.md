@@ -47,9 +47,12 @@ panorama-generation/
 │   ├── test_blending.py
 │   └── benchmark.py
 ├── docs/
-│   ├── M2_baseline.md
-│   ├── M3_sift_flann.md
-│   └── M4_planned_improvements.md
+│   ├── Final_Report_G16.pdf           ← IEEE format 8-page final project report
+│   ├── Contribution_Statement_G16.pdf ← Standalone member contribution statement
+│   ├── Final_Presentation_G16.pdf     ← Final project presentation slides
+│   ├── M3_G16.pdf                     ← Milestone 3 report
+│   ├── M2_G16.pdf                     ← Milestone 2 report
+│   └── M1_G16_Proposal.pdf            ← Initial project proposal
 ├── generate_dummy_data.py ← synthetic 4-frame test sequence
 └── requirements.txt
 ```
@@ -130,8 +133,8 @@ pytest tests/ -v
 
 | Metric | M2 (ORB+BF) | M3 (SIFT+FLANN) | M4 (feather) | M4 (multiband+BA) |
 |---|:---:|:---:|:---:|:---:|
-| Inlier ratio | N/A | **76.56 %** | 76.56 % | 76.56 % |
-| RMSE (px) | N/A | **0.54** | 0.54 | ≤0.54 (BA reduces drift) |
+| Inlier ratio | 56.76 % | **76.56 %** | 76.56 % | 76.56 % |
+| RMSE (px) | 2.07 | **0.54** | 0.54 | ≤0.54 (BA reduces drift) |
 | Speed (s/pair) | ~0.2 | **~0.65** | ~0.70 | ~0.95 |
 | Seam quality | Hard seam | Hard seam | **Smooth** | **Sharp + seamless** |
 | N-image | ❌ | ✅ | ✅ | ✅ |
@@ -156,4 +159,4 @@ compensate_exposure: false
 ---
 
 ## Dataset
-Dataset source: https://sourceforge.net/adobe/adobedatasets/home/Home/
+Dataset source: Custom dataset captured using a handheld smartphone camera (12MP resolution).
